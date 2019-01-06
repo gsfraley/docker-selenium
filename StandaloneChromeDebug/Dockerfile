@@ -2,7 +2,7 @@
 # NOTE: DO *NOT* EDIT THIS FILE.  IT IS GENERATED.
 # PLEASE UPDATE Dockerfile.txt INSTEAD OF THIS FILE
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-FROM selenium/node-chrome-debug:3.141.59-dubnium
+FROM selenium/rpi-sel-node-chrome-debug:3.141.59-dubnium
 LABEL authors=SeleniumHQ
 
 USER seluser
