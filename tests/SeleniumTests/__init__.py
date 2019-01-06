@@ -43,7 +43,7 @@ class SeleniumGenericTests(unittest.TestCase):
         self.driver.quit()
 
 
-class ChromeTests(SeleniumGenericTests):
+class ChromiumTests(SeleniumGenericTests):
     def setUp(self):
         self.driver = webdriver.Remote(
             desired_capabilities=DesiredCapabilities.CHROME
