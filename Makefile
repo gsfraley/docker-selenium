@@ -42,10 +42,10 @@ nodebase: base generate_nodebase
 	cd ./NodeBase && docker build $(BUILD_ARGS) -t $(NAME)/rpi-sel-node-base:$(VERSION) .
 
 generate_chrome:
-	cd ./NodeChrome && ./generate.sh $(VERSION) $(NAMESPACE) $(AUTHORS)
+	cd ./NodeChromium && ./generate.sh $(VERSION) $(NAMESPACE) $(AUTHORS)
 
 chrome: nodebase generate_chrome
-	cd ./NodeChrome && docker build $(BUILD_ARGS) -t $(NAME)/rpi-sel-node-chrome:$(VERSION) .
+	cd ./NodeChromium && docker build $(BUILD_ARGS) -t $(NAME)/rpi-sel-node-chrome:$(VERSION) .
 
 generate_firefox:
 	cd ./NodeFirefox && ./generate.sh $(VERSION) $(NAMESPACE) $(AUTHORS)
@@ -78,10 +78,10 @@ standalone_chrome_debug: chrome_debug generate_standalone_chrome_debug
 	cd ./StandaloneChromeDebug && docker build $(BUILD_ARGS) -t $(NAME)/rpi-sel-standalone-chrome-debug:$(VERSION) .
 
 generate_chrome_debug:
-	cd ./NodeDebug && ./generate.sh NodeChromeDebug rpi-sel-node-chrome Chrome $(VERSION) $(NAMESPACE) $(AUTHORS)
+	cd ./NodeDebug && ./generate.sh NodeChromiumDebug rpi-sel-node-chrome Chrome $(VERSION) $(NAMESPACE) $(AUTHORS)
 
 chrome_debug: generate_chrome_debug chrome
-	cd ./NodeChromeDebug && docker build $(BUILD_ARGS) -t $(NAME)/rpi-sel-node-chrome-debug:$(VERSION) .
+	cd ./NodeChromiumDebug && docker build $(BUILD_ARGS) -t $(NAME)/rpi-sel-node-chrome-debug:$(VERSION) .
 
 generate_firefox_debug:
 	cd ./NodeDebug && ./generate.sh NodeFirefoxDebug rpi-sel-node-firefox Firefox $(VERSION) $(NAMESPACE) $(AUTHORS)
@@ -218,10 +218,10 @@ test: test_chrome \
 
 
 test_chrome:
-	VERSION=$(VERSION) NAMESPACE=$(NAMESPACE) ./tests/bootstrap.sh NodeChrome
+	VERSION=$(VERSION) NAMESPACE=$(NAMESPACE) ./tests/bootstrap.sh NodeChromium
 
 test_chrome_debug:
-	VERSION=$(VERSION) NAMESPACE=$(NAMESPACE) ./tests/bootstrap.sh NodeChromeDebug
+	VERSION=$(VERSION) NAMESPACE=$(NAMESPACE) ./tests/bootstrap.sh NodeChromiumDebug
 
 test_chrome_standalone:
 	VERSION=$(VERSION) NAMESPACE=$(NAMESPACE) ./tests/bootstrap.sh StandaloneChrome
